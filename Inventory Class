@@ -1,0 +1,13 @@
+using System.Collections.Generic;
+
+[System.Serializable]
+public class Inventory
+{
+    public List<string> items = new List<string>();
+
+    public void AddItem(string item)
+    {
+        items.Add(item);
+        Debug.Log($"Added {item} to inventory.");
+    }
+}
