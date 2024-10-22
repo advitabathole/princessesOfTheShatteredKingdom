@@ -1,0 +1,13 @@
+public class Princess
+{
+    public string name;
+    public string ability;
+    public string story;
+    public int health = 100;
+    public Inventory inventory;
+
+    public void UseAbility()
+    {
+        Debug.Log($"{name} uses {ability}!");
+    }
+}
