@@ -1,0 +1,47 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public Princess[] princesses;
+    public Princess activePrincess;
+    public Quest[] quests;
+
+    private void Start()
+    {
+        InitializePrincesses();
+        InitializeQuests();
+        activePrincess = princesses[0]; // Start with the first princess
+    }
+
+    void InitializePrincesses()
+    {
+        princesses = new Princess[]
+        {
+            new Princess { name = "Aurora", ability = "Dream Shield", story = "Once trapped in eternal sleep..." },
+            new Princess { name = "Cinderella", ability = "Glass Blade", story = "Fled from her past..." },
+            new Princess { name = "Snow White", ability = "Poison Apple", story = "Turned against by her own kin..." }
+        };
+    }
+
+    void InitializeQuests()
+    {
+        quests = new Quest[]
+        {
+            new Quest { title = "Rescue the Lost Prince", description = "Find and rescue the lost prince from the Dark Forest.", reward = "Golden Crown" }
+        };
+    }
+
+    public void SwitchPrincess(int index)
+    {
+        if (index >= 0 && index < princesses.Length)
+        {
+            activePrincess = princesses[index];
+            Debug.Log($"Switched to {activePrincess.name}");
+        }
+    }
+
+    public void ShowStatus()
+    {
+        Debug.Log($"Active Princess: {activePrincess.name} | Health: {activePrincess.health}");
+    }
+}
